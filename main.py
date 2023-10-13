@@ -156,8 +156,10 @@ async def go_to_pages(link: str, limit: int):
 # Не забудь про фильтр! (см. пример ниже)
 async def main(country_link: str, limit):
     # СОЗДАНИЕ БД ВЫПОЛНИТЬ ТОЛЬКО ОДИН РАЗ, ПОСЛЕ - ЗАКОММЕНТИТЬ
-    from database import create_db
-    create_db()
+    # from database import create_db
+    # create_db()
+    with open("emails.txt", 'w') as file:
+        pass
     try:
         await go_to_pages(country_link, limit)
     except ParseFinished:
@@ -165,8 +167,7 @@ async def main(country_link: str, limit):
     finally:
         with open("emails.txt", 'r') as file:
             emails = file.readlines()
-            print(emails)
-        return
+        return emails
 
 # if __name__ == "__main__":
 #     # from database import create_db

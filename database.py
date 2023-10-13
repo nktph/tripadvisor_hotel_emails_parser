@@ -52,7 +52,6 @@ def get_hotel(**kwargs):
 
 
 def create_db():
-    print(path_db)
     with sqlite3.connect(path_db) as con:
         con.row_factory = dict_factory
 
